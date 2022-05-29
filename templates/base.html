@@ -1,0 +1,63 @@
+
+
+
+<footer>
+    <div class="book-wrapper">
+      <div class="d-xl-flex align-items-start justify-content-between">
+        <div class="footer-first">
+          <img src="/static/static/image/LOGO (2).png" alt="footer-logo">
+          <p class="footer-paragraph">
+            Kitobingiz sizga foyda keltirishini hohlasangiz, uni boshqalar bilan bo‘lishing !
+          </p>
+        </div>
+
+        <div class="pt-4">
+          <ul>
+            <li><a href="{% url 'movie:home' %}">Bosh sahifa</a></li>
+            <li><a href="{% url 'movie:books' %}">E’lonlar oynasi</a></li>
+            <li><a href="{% url 'movie:mybooks' %}">Mening e’lonlarim</a></li>
+            <li><a href="{% url 'movie:package' %}">Kitob joylash</a></li>
+          </ul>
+        </div>
+
+        <div class="pt-4">
+          <ul>
+            <li><a href="">Kitob joylash haqida ma’lumot</a></li>
+            <li><a href="#">Accaunt ochish haqida ma’lumot</a></li>
+            <li><a href="#">Ma’lumotlar</a></li>
+
+          </ul>
+        </div>
+
+
+
+
+      </div>
+
+      <hr class="line">
+
+      <div class="text-center footer-end-text">
+        <h3>@BookSwap 2022 </h3>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="/static/static/js/anime.js"></script>
+  <script src="/static/static/js/script.js"></script>
+  <script>
+    window.onload = function () {
+      if (location.search) {
+        let username = location.search.split('name=')[1]
+        let msgBox = new MessageBox('Xush kelibsiz!', username + ' akkautingizga muvaffaqiyatli kirildi', true);
+        msgBox.show()
+        setTimeout(() => {
+          msgBox.del();
+          location.search = ''
+        }, 3000);
+      }
+    }
+  </script>
+</body>
+
+</html>
