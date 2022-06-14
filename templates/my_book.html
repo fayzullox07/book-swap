@@ -99,7 +99,7 @@
               <div class="heart">
                 <div class="fas fa-heart"></div>
               </div>
-              <a class="img-target"><img src="{{book.book_img.url}}" alt="stiv-jobs"></a>
+              <a class="img-target"><img src="{{book.src.url}}" alt="stiv-jobs"></a>
               <a><img class="top-img-header" src="/static/static/image/Vector (23).png" alt="heart-image"></a>
             </center>
 
@@ -108,7 +108,7 @@
           <div class=" card-text-wr pt-3">
 
             <div class="doter-wr">
-              <p><span> Nomi :</span> {{book.name}} </p>
+              <p><span> Nomi :</span> {{book.title}} </p>
               <div class="dote-wr">
                 <i class="fa-solid fa-ellipsis-vertical"></i>
               </div>
@@ -117,7 +117,9 @@
             <p><span>Avtori :</span> {{book.author}} </p>
 
             <p><span>Janri : </span> {{book.genre}} </p>
-            <a href="#">{{book.city}} - {{book.time}}</a>
+            <a href="#">Andijon - {{book.time}}</a>
+            <a href="{% url 'movie:detail' book.slug %}">Batafsil</a>
+            
           </div>
 
 
@@ -134,7 +136,7 @@
 
     </div>
     <div class="button-in-orange-color-centered">
-      <a href="enterbook.html">Kitob joylash</a>
+      <a href="{% url 'movie:package' %}">Kitob joylash</a>
     </div>
   </section>
 

@@ -99,7 +99,7 @@
               <div class="heart">
                 <div class="i fas fa-heart"></div>
               </div>
-              <a class="img-target"><img src="{{book.book_img.url}}" alt="stiv-jobs"></a>
+              <a class="img-target"><img src="{{book.src.url}}" alt="stiv-jobs"></a>
               <a><img class="top-img-header" src="/static/static/image/Vector (31).png" width="500" alt="heart-image"></a>
             </center>
 
@@ -112,12 +112,10 @@
             <p><span>Avtori : </span>{{book.author}}</p>
 
             <p><span>Janri : </span>
-              {% for genre in book.genre.all%}
-                    {{genre.name}}
-              {% endfor %}
+              {{book.genre}}
             </p>
-            <a class="hover-no">{{book.city}} - {{book.time}}</a>
-            <a href="{% url 'movie:detail' book.slug %}">Batafsil</a>
+             <a class="hover-no">{{book.city}}</a>
+             <a href="{% url 'movie:detail' book.slug %}">Batafsil</a>
           </div>
 
 

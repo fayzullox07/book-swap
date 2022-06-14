@@ -122,9 +122,12 @@
               <a href="{% url 'movie:books' %}" class=" enter-web" id="next">Kirish</a>
               <br>
               <br>
-              <br>
+             
               <p>Akkauntingiz yo’qmi ? <span style="color: rgb(59, 59, 228) !important;"><a
-                    href="{% url 'accounts:register' %}">Ro’yxatdan o’ting</a></span> </p>
+                    href="{% url 'accounts:register' %}">Ro’yxatdan o’ting</a></span><br>
+                    Parolingizni yoddan chiqdimi ?
+              <a
+                    href="{% url 'password_reset' %}">Parolni tiklash</a></span> </p>
             </center>
           </div>
         </div>

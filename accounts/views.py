@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.contrib import messages
-from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect ,HttpResponse, JsonResponse
-from django.views.generic import ListView, DetailView, View, CreateView
+from django.http import HttpResponseRedirect
+from django.views.generic import ListView   
+
+from accounts.models import CustomUser
 from .forms import CustomUserCreationForm
 
 def registration_view(request):
@@ -56,3 +57,8 @@ def registration_view(request):
 #     form_class = CustomUserCreationForm
 #     success_url = reverse_lazy('login')
 #     template_name = "registration/register.html"
+
+
+class AccountView(ListView):
+    model = CustomUser
+    template_name = "registration/personal-information.html"

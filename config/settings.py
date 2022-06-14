@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+
+import os
 from pathlib import Path
+
+import django
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +44,7 @@ INSTALLED_APPS = [
     'movie',
     'accounts',
     'social_django',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -122,15 +127,14 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
 SOCIAL_AUTH_GOOGLE_OAUTH2_USE_UNIQUE_USER_ID = True
 
 
-
 # Facebook
 SOCIAL_AUTH_FACEBOOK_KEY = '712519039956170'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'a1e93412d57def9cbc2c2f4f3b4d5524'
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.10'
 
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-  'locale': 'ru_RU',
-  'fields': 'id, name, email, age_range'
+    'locale': 'ru_RU',
+    'fields': 'id, name, email, age_range'
 }
 
 
@@ -139,21 +143,12 @@ SOCIAL_AUTH_GITHUB_KEY = '547ae518f559211dd4d0'
 SOCIAL_AUTH_GITHUB_SECRET = 'bf9e207b7f1ae36f55860303e4ef3004cd139d6c'
 
 
-
-
-
-
-
-
-
-
-
-
 # Linkedin
-SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = "78empv9n4qcffr"         #Client ID
-SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = "d1tOwNMBOR97Y3Qf"  #Client Secret
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = "78empv9n4qcffr"  # Client ID
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = "d1tOwNMBOR97Y3Qf"  # Client Secret
 SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_basicprofile', 'r_emailaddress']
-SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = ['email-address', 'formatted-name', 'public-profile-url', 'picture-url']
+SOCIAL_AUTH_LINKEDIN_OAUTH2_FIELD_SELECTORS = [
+    'email-address', 'formatted-name', 'public-profile-url', 'picture-url']
 SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
     ('id', 'id'),
     ('formattedName', 'name'),
@@ -168,7 +163,7 @@ SOCIAL_AUTH_LINKEDIN_OAUTH2_EXTRA_DATA = [
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
@@ -180,20 +175,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-import os
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS = (
-  os.path.join(BASE_DIR, 'static')) ,
+    os.path.join(BASE_DIR, 'static')),
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+# EMAIL BACKEND
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'smtp-relay.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "fayzulloxibbrohimjonov13@gmail.com"
+EMAIL_HOST_PASSWORD = "13070713"
+EMAIL_USE_TLS = True
 
 
 LOGIN_REDIRECT_URL = 'home'

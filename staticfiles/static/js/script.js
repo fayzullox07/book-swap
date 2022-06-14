@@ -223,16 +223,16 @@ if (anchors) {
 }
 function setMore() {
   let cardNoA = document.querySelectorAll('.card-wr .card-text-wr a:nth-of-type(1)')
-  let cards = document.querySelectorAll('.card-wr .card-text-wr')
-  if (cards) {
-    cards.forEach(card => {
-      let more = document.createElement('a')
-      more.className = 'hover';
-      more.innerHTML = 'Batafsil <i class="fas fa-arrow-right"></i>';
-      more.href = card.getAttribute('href') ? card.getAttribute('href') : 'reworkbook.html'
-      card.appendChild(more)
-    })
-  }
+  // let cards = document.querySelectorAll('.card-wr .card-text-wr')
+  // if (cards) {
+  //   cards.forEach(card => {
+  //     let more = document.createElement('a')
+  //     more.className = 'hover';
+  //     more.innerHTML = 'Batafsil <i class="fas fa-arrow-right"></i>';
+  //     more.href = card.getAttribute('href') ? card.getAttribute('href') : '{% url "movie:mybookdetail" book.slug %}'
+  //     card.appendChild(more)
+  //   })
+  // }
   if (cardNoA) {
     cardNoA.forEach(a => {
       a.className = 'hover-no'

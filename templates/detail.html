@@ -71,18 +71,18 @@
             </div>
             <div class="d-flex align-items-center justify-content-between user-blog">
                 <div class="white-card d-flex align-items-start">
-                    <img src="{{books.book_img.url}}" alt="image" id="book" />
+                    <img src="{{books.src.url}}" alt="image" id="book" />
                     <div class="dollar">
                         <p><span>Nomi :</span> {{books.title}}</p>
                         <p><span>Avtori :</span>{{books.author}}</p>
                         <p><span>Janri :</span>
-                            {% for genre in books.genre.all%}
-                                {{genre.name}}
-                            {% endfor %}
+                            {{ book.user | title }}
                         </p>
                         <p><span>Kitob haqida :</span></p>
                         <p class="footer-bottom-text">
                             {{books.desc | slice:150}}
+                       
+
                         </p>
                         
                     </div>
@@ -116,7 +116,7 @@
             <div class="love-book">
                 <div class="d-flex align-items-center flex-wrap pt-2 adver-text">
                     <h2>Mening e’lonlarim :</h2>
-                    <a class="seeall ps-3 text-primary pt-2" color="#000" href="lovebook.html">barchasini ko‘rish</a>
+                    <a class="seeall ps-3 text-primary pt-2" color="#000" href="{% url 'movie:mybooks' %}">barchasini ko‘rish</a>
                 </div>
             </div>
             <div class="d-flex align-items-center justify-content-center all_cards_wr">
@@ -131,7 +131,7 @@
                                 <div class="heart">
                                     <div class="i fas fa-heart"></div>
                                 </div>
-                                <img src="{{book.book_img.url}}" alt="stiv-jobs">
+                                <img src="{{book.src.url}}" alt="stiv-jobs">
                                 <img class="top-img-header" src="image/Vector (31).png" alt="heart-image">
                             </center>
                         </a>
@@ -139,12 +139,11 @@
                     <div class=" card-text-wr pt-3" href="my-book-details.html">
                         <p><span> Nomi :</span> {{book.title}}</p>
                         <p><span>Avtori :</span> {{book.author}}</p>
-                        <p><span>Janri : 
-                            {% for genre in books.genre.all%}
-                                {{genre.name}}
-                            {% endfor %}
-                        </span> </p>
-                        <a href="#">{{book.city}} - {{book.time}}</a>
+                       <p><span>Janri :
+                               {{book.genre}}
+                           </span> </p>
+                       <a href="#">{{book.city}} - {{book.time}}</a>
+                       <a href="{% url 'movie:detail' book.slug %}">Batafsil</a>
                     </div>
                 </div>
 
